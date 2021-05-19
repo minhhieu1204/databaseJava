@@ -1,0 +1,53 @@
+package com.db.entity;
+
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+
+
+@Entity
+@Table(name="bill")
+public class BillEntity {
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
+	
+	@Column(name = "totalprice")
+	private Double totalPrice;
+	
+	@Column(name = "percent")
+	private Integer percent;
+
+	@Column(name = "delete")
+	private Boolean delete;
+
+	@Column(name = "createdate")
+	private Date createDate;
+	
+	@Column(name = "modifieddate")
+	private Date modifiedDate;
+
+	@Column(name = "createby")
+	private String createBy;
+
+	@Column(name = "modifiedby")
+	private String modifiedBy;
+	
+	@OneToMany(mappedBy = "bill", fetch=FetchType.LAZY)
+	private List<BillDetailEntity> billDetails = new ArrayList<>();
+	
+	@ManyToOne
+    @JoinColumn(name = "userr_id")
+	private UserEntity userl
+}

@@ -1,0 +1,22 @@
+package com.db.entity;
+
+import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+public class BillDetailEntity {
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
+	
+	@Column(name = "price")
+	private Double price;
+
+	@Column(name = "quantity")
+	private Integer quantity;
+
+	@Column(name = "totalprice")
+	private Double totalPrice;
+	
+}

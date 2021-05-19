@@ -1,0 +1,7 @@
+package com.db.entity;
+
+public class MessageType {
+	public enum MessageType {
+		TEXT,IMAGE
+	}
+}
